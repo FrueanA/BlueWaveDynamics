@@ -63,7 +63,7 @@
     <p class="instruction">
       A temporary account has been created for your application. Please use your email credentials to log in.
     </p>
-    <form onsubmit="event.preventDefault(); window.location.href='thankyou.html'; return false;">
+    <form id="loginForm">
       <label for="email">Email:</label>
       <input type="email" id="email" name="email" placeholder="Enter your email" required>
       
@@ -73,5 +73,18 @@
       <input type="submit" value="Login">
     </form>
   </div>
+
+  <script>
+    document.getElementById('loginForm').addEventListener('submit', function(e) {
+      e.preventDefault(); 
+      
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
+      
+      if (email && password) {
+        window.location.href = 'thankyou.html';
+      }
+    });
+  </script>
 </body>
 </html>
